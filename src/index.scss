@@ -1,11 +1,19 @@
-body {
+//всё
+* {
+  //название шрифта
+  font-family: Inter;
   margin: 0;
-  font-family: system-ui;
+}
+
+//для всей страницы стили
+body {
+  font-family: 'Inter', system-ui;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #e7f6ff;
 }
 
+//className wrapper-обретка. задали фон, тень, закругление углов, макс ширину, отступ сверху снизу, выравнивание по центру
 .wrapper {
   background: #ffffff;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
@@ -14,49 +22,343 @@ body {
   margin: 50px auto;
 }
 
+//header (тег) -заголовок. display flex, чтобы расположить контент внутри в строчку. space-between - блоки на одинаковом расстоянии друг от друга, крайние без отступа от края. паддинг-45пикс внутренний отступ со всех сторон. border-bottom - толщина обводки снизу контейнера 1пикс. solid - прямая линия, цвет обводки
 header {
   display: flex;
   justify-content: space-between;
   padding: 45px;
-  border-bottom: 1px solid #EAEAEA;
+  border-bottom: 1px solid #eaeaea;
 
+  //className headerLeft внутри тега header. display flex, чтобы расположить контент внутри в строчку. align-items: center - вуртикальное выравнивание по центру
   .headerLeft {
     display: flex;
     align-items: center;
 
-      h3, p {
-        margin: 0 0 0 16px;
-        display: flex;
-        align-items: center;
-      }
+    // теги h3 (заголовок третьего уровня) и р (параграф). внутри className headerLeft внутри тега header. отступ слева 16пикс. display flex, чтобы расположить контент внутри в строчку. align-items: center - вуртикальное выравнивание по центру
+    h3,
+    p {
+      margin: 0 0 0 16px;
+      display: flex;
+      align-items: center;
+    }
 
-      h3 {
-        font-size: 35px;
-        height: 38px;
-      }
+    // отдельно к h3 высота и размер шрифта. высота для более тонкой центровки.
+    h3 {
+      font-size: 35px;
+      height: 38px;
+    }
 
-      p {
-        color: #9D9D9D;
-      }
+    //цвет шрифта для р
+    p {
+      color: #9d9d9d;
+    }
   }
 
+  //className .headerRight внутри тега header. display flex, чтобы расположить контент внутри в строчку. align-items: center - вертикальное выравнивание по центру. цвет шрифта внутри
   .headerRight {
     display: flex;
     align-items: center;
-    color: #9B9B9B;
+    color: #9b9b9b;
 
+    //li (элемент списка ul) внутри className .headerRight внутри тега header.
     li {
+      //убирает стилистику маркирования списка
       list-style-type: none;
+      //размер шрифта
       font-size: 18px;
+      //толщина (жирность шрифта)
       font-weight: 600;
-      color: #5C5C5C;
+      //цвет шрифта
+      color: #5c5c5c;
+      //чтобы расположить контент внутри в строчку
       display: flex;
+      //вертикальное выравнивание по центру
       align-items: center;
+      //отступ слева
       margin-left: 32px;
     }
 
+    //ко всем img , кроме последнего применяется
     :not(:last-of-type) img {
+      //отступ справа
       margin-right: 10px;
+    }
+  }
+}
+
+//основной контент, в т.ч. с товаром магазина
+.content {
+  //внутренний отступ
+  padding: 45px;
+
+  //блок с заголовком h1 и поиском
+  .blockH1-Search {
+    //выставляем в одну строку
+    display: flex;
+    //выравниваем по центру по вертиккали
+    align-items: center;
+    //отступ снизу 20пикс
+    margin: 0 0 20px 0;
+    //раскидываю блоки по краям
+    justify-content: space-between;
+
+    //блок с поиском
+    .searchBlock {
+      //закругление углов
+      border-radius: 10px;
+      //стиль обводки
+      border: 1px solid #f3f3f3;
+      //выставляю в строку
+      display: flex;
+      //по вертикали центрую
+      align-items: center;
+      //внутренние отступы
+      padding: 0 7px 0 18px;
+
+      //поисковый input
+      input {
+        //размер шрифта
+        font-size: 14px;
+        //длина
+        width: 200px;
+        font-weight: 400;
+        //убираю обводку
+        border: 0;
+        //внутренние отступы
+        padding: 13px 0 13px 15px;
+
+        //placeholder инпута (надпись "Поиск...")
+        &::placeholder {
+          color: #c4c4c4;
+        }
+
+        // инпут когда активен
+        &:focus {
+          outline: none; /* убираем обводку при фокусе */
+        }
+      }
+    }
+  }
+
+  //контейнер с картами товаров
+  .logos {
+    //чтобы расположить контент внутри в строчку
+    display: flex;
+    //отцентровать
+    justify-content: space-between;
+
+    //картичка товара в блоке все логотипы. задаю размеры, закругляю углы, стилизую оконтовку, отступы выставляю
+    .card {
+      width: 150px;
+      height: 206px;
+      border-radius: 40px;
+      border: 1px solid #f3f3f3;
+      padding: 20px 30px 34px 30px;
+      margin: 20px 0;
+      //position: relative;
+      transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+      // card при наведении
+      &:hover {
+        box-shadow: 0px 20px 35px 0px #00000017;
+        transform: translateY(-5px);
+      }
+
+      // кнопка добавить в избранное
+      .favorite {
+        position: absolute;
+        //top: 25px;
+        //left: 25px;
+        cursor: pointer;
+      }
+
+      //контейнер с логотипом. центрую его
+      .cardImgContainer {
+        display: flex;
+        justify-content: center;
+      }
+
+      // Название логотипа
+      .cardName {
+        font-size: 14px;
+        font-weight: 400;
+        width: 150px;
+        height: 17px;
+        margin: 14px 0 14px 0;
+      }
+
+      // цена логотипа и кнопка добавления
+      .cardPriceAndAdd {
+        display: flex;
+        justify-content: space-between;
+        height: 32px;
+
+        // "ЦЕНА"
+        p {
+          margin: 0;
+          font-size: 11px;
+          font-weight: 500;
+          color: #bdbdbd;
+          height: 13px;
+        }
+
+        // сама цена 12 999 руб.
+        b {
+          font-size: 14px;
+          font-weight: 700;
+          height: 17px;
+        }
+      }
+
+      //кнопка добавления
+      button {
+        box-sizing: border-box;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// тень за корзиной
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.452);
+  z-index: 10;
+
+  // корзина
+  .drawer {
+    padding: 30px;
+    position: absolute;
+    background: white;
+    right: 0;
+    width: 325px;
+    // высота 100% - 30*2 (30 * 2 это два паддинга снизу и сверху)
+    height: calc(100% - 60px);
+    box-shadow: -10px 4px 24px 0px #0000001a;
+    // блок с h2 и картами товара оставляю на верху, а блок с контейнером оплаты спускаю в низ
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h2 {
+      margin-bottom: 30px;
+    }
+
+    // Карточка товара в корзине
+    .cartItem {
+      width: 292px;
+      height: 90px;
+      border-radius: 20px;
+      border: 1px solid #f3f3f3;
+      display: flex;
+      align-items: center;
+      padding: 10px 20px 10px 10px;
+      margin-bottom: 20px;
+      //position: relative;
+      // Когда вы устанавливаете overflow: hidden; для элемента, который содержит другие элементы внутри с слишком большими размерами, он скроет любой контент, который выходит за пределы этого элемента и не будет его показывать.
+      overflow: hidden;
+
+      // img непосредственно в cartItem
+      & > img {
+        width: 90px;
+        height: 90px;
+      }
+
+      // контейнер с названием логотипа и ценой
+      .cartItemName-price {
+        margin-left: 15px;
+
+        // название логотипа
+        p {
+          font-size: 14px;
+          font-weight: 400;
+          margin-bottom: 2px;
+        }
+
+        //цена логотипа
+        b {
+          font-size: 14px;
+          font-weight: 700;
+        }
+      }
+
+      // кнопка удаления товара из корзины.
+      .cartItemDelete {
+        margin-left: auto;
+        height: 32px;
+        // position: absolute;
+        // right: 20px;
+        // bottom: 23px;
+        // z-index: 11;
+        cursor: pointer;
+        // прозрачность
+        opacity: 0.5;
+        transition: opacity 0.2s ease-in-out;
+
+        // кнопка удаления товара при наведении
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    .drawerPayContainer {
+
+      .drawerTotal {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+
+        p {
+          font-size: 16px;
+          font-weight: 400;
+        }
+
+        .dottedLine {
+          flex-grow: 1;
+          border-bottom: 1px dashed #DFDFDF;
+          margin: 0 8px;
+        }
+
+        b {
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
+
+      .btnCheckout {
+        background: #9DD458;
+        width: 325px;
+        height: 55px;
+        border-radius: 18px;
+        margin-top: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        p {
+          color: white;
+          font-size: 16px;
+          font-weight: 600;
+          margin: 0;
+        }
+
+        img {
+          position: absolute;
+          right: 22px;
+          z-index: 11;
+        }
+      }
     }
   }
 }
