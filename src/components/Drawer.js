@@ -4,7 +4,7 @@ function Drawer() {
       <div className="drawer">
         <div>
           <h2>
-            Корзина{' '}
+            Корзина
             <img
               width={32}
               height={32}
