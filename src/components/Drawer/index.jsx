@@ -1,7 +1,9 @@
+import styles from './Drawer.module.scss'
+
 function Drawer() {
   return (
-    <div style={{ display: 'none' }} className="overlay">
-      <div className="drawer">
+    <div  className={styles.overlay} style={{display: 'none'}}>
+      <div className={styles.drawer}>
         <div>
           <h2>
             Корзина
@@ -12,14 +14,14 @@ function Drawer() {
               alt="Закрыть корзину"
             />
           </h2>
-          <div className="cartItems">
-            <div className="cartItem">
+          <div className={styles.cartItems}>
+            <div className={styles.cartItem}>
               <img src="/img/logo/cat-ico.png" alt="Логотип" />
-              <div className="cartItemName-price">
+              <div className={styles.cartItemNamePrice}>
                 <p>Логотип "Кошка"</p>
                 <b>12 999 руб.</b>
               </div>
-              <div className="cartItemDelete">
+              <div className={styles.cartItemDelete}>
                 <img
                   width={32}
                   height={32}
@@ -28,13 +30,13 @@ function Drawer() {
                 />
               </div>
             </div>
-            <div className="cartItem">
+            <div className={styles.cartItem}>
               <img src="/img/logo/fox-ico.png" alt="Логотип" />
-              <div className="cartItemName-price">
+              <div className={styles.cartItemNamePrice}>
                 <p>Логотип "Лиса"</p>
                 <b>12 999 руб.</b>
               </div>
-              <div className="cartItemDelete">
+              <div className={styles.cartItemDelete}>
                 <img
                   width={32}
                   height={32}
@@ -45,18 +47,18 @@ function Drawer() {
             </div>
           </div>
         </div>
-        <div className="drawerPayContainer">
-          <div className="drawerTotal">
+        <div className={styles.drawerPayContainer}>
+          <div className={styles.drawerTotal}>
             <p>Итого:</p>
             <div></div>
             <b>21 498 руб.</b>
           </div>
-          <div className="drawerTotal">
+          <div className={styles.drawerTotal}>
             <p>CashBack:</p>
             <div></div>
             <b>1 074 руб.</b>
           </div>
-          <button className="greenButton">
+          <button className={`${styles.greenButton} greenButton`}>
             Оформить заказ
             <img src="/img/arrow.svg" alt="Оформить" />
           </button>

@@ -1,7 +1,9 @@
+import styles from './Header.module.scss'
+
 function Header () {
     return (
         <header>
-        <div className="headerLeft">
+        <div className={styles.headerLeft}>
           <img
             width={90}
             height={90}
@@ -13,7 +15,7 @@ function Header () {
             <p>Магазин лучших логотипов</p>
           </div>
         </div>
-        <ul className="headerRight">
+        <ul className={styles.headerRight}>
           <li>
             <img width={24} height={24} src="/img/cart.svg" alt="Корзина" />
             <span>1205 руб.</span>

@@ -1,0 +1,178 @@
+// тень за корзиной
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.452);
+  z-index: 10;
+
+  // корзина
+  .drawer {
+    padding: 30px;
+    position: absolute;
+    background: white;
+    right: 0;
+    width: 325px;
+    // высота 100% - 30*2 (30 * 2 это два паддинга снизу и сверху)
+    height: calc(100% - 60px);
+    box-shadow: -10px 4px 24px 0px #0000001a;
+    // блок с h2 и картами товара оставляю на верху, а блок с контейнером оплаты спускаю в низ
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    // "Корзина"
+    h2 {
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      // крестик справа от корзины
+      img {
+        cursor: pointer;
+        opacity: 0.5;
+        transition: opacity 0.2s ease-in-out;
+
+        // крестик при наведении
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    // блок с картами в корзине
+    .cartItems {
+      height: calc(100vh - 300px);
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        width: 6px; /* Ширина полосы прокрутки */
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #cacaca; /* Цвет "бегунка" полосы прокрутки */
+        border-radius: 3px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: #e9e9e9; /* Цвет фона полосы прокрутки */
+        border-radius: 3px;
+      }
+
+      // Карточка товара в корзине
+      .cartItem {
+        //max-width: 275px;
+        height: 90px;
+        border-radius: 20px;
+        border: 1px solid #f3f3f3;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px 10px 10px;
+        margin-bottom: 20px;
+        //position: relative;
+        // Когда вы устанавливаете overflow: hidden; для элемента, который содержит другие элементы внутри с слишком большими размерами, он скроет любой контент, который выходит за пределы этого элемента и не будет его показывать.
+        //overflow: hidden;
+
+        // img непосредственно в cartItem
+        & > img {
+          width: 90px;
+          height: 90px;
+        }
+
+        // контейнер с названием логотипа и ценой
+        .cartItemNamePrice {
+          margin-left: 15px;
+
+          // название логотипа
+          p {
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 2px;
+          }
+
+          //цена логотипа
+          b {
+            font-size: 14px;
+            font-weight: 700;
+          }
+        }
+
+        // кнопка удаления товара из корзины.
+        .cartItemDelete {
+          margin-left: auto;
+          height: 32px;
+          // position: absolute;
+          // right: 20px;
+          // bottom: 23px;
+          // z-index: 11;
+          cursor: pointer;
+          // прозрачность
+          opacity: 0.5;
+          transition: opacity 0.2s ease-in-out;
+
+          // кнопка удаления товара при наведении
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    // контейнер с "итого", "кешбек", и кнопкой "оформить..."
+    .drawerPayContainer {
+      // контейнер с итого, а также кешбек
+      .drawerTotal {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+
+        // текст итого/кешбек
+        p {
+          font-size: 16px;
+          font-weight: 400;
+        }
+
+        // контейнер с пунктирной линией
+        div {
+          flex-grow: 1;
+          border-bottom: 1px dashed #dfdfdf;
+          margin: 0 8px;
+          position: relative;
+          top: -3px;
+        }
+
+        // суммы
+        b {
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
+
+      // кнопка оформить. здесь только часть стилей. основная часть в отдельном классе
+      .greenButton {
+        width: 325px;
+        margin-top: 24px;
+
+        // при наведении на кнопку "оформить..."
+        &:hover {
+          // стиль для стрелки в кнопке "офрмить..."
+          img {
+            // сдвигает стрелку при наведении на 5 пикс вправо
+            transform: translateX(5px);
+          }
+        }
+
+        // стиль для стрелки в кнопке "офрмить...". выставляю  положение стрелки отнеосительно кнопки
+        img {
+          position: absolute;
+          right: 33px;
+          // настраивает сдвигание стрелки
+          transition: transform 0.2s ease-in-out;
+        }
+      }
+    }
+  }
+}

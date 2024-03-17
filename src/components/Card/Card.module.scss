@@ -1,0 +1,78 @@
+//картичка товара в блоке все логотипы. задаю размеры, закругляю углы, стилизую оконтовку, отступы выставляю
+.card {
+  width: 150px;
+  height: 206px;
+  border-radius: 40px;
+  border: 1px solid #f3f3f3;
+  padding: 20px 30px 34px 30px;
+  margin: 20px 0;
+  //position: relative;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+//   &:not(:last-of-type) {
+//     margin-right: 20px;
+//   }
+
+  // card при наведении
+  &:hover {
+    box-shadow: 0px 20px 35px 0px #00000017;
+    transform: translateY(-5px);
+  }
+
+  // кнопка добавить в избранное
+  .favorite {
+    position: absolute;
+    //top: 25px;
+    //left: 25px;
+    cursor: pointer;
+  }
+
+  //контейнер с логотипом. центрую его
+  .cardImgContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  // Название логотипа
+  .cardName {
+    font-size: 14px;
+    font-weight: 400;
+    width: 150px;
+    height: 17px;
+    margin: 14px 0 14px 0;
+  }
+
+  // цена логотипа и кнопка добавления
+  .cardPriceAndAdd {
+    display: flex;
+    justify-content: space-between;
+    height: 32px;
+
+    // "ЦЕНА"
+    p {
+      margin: 0;
+      font-size: 11px;
+      font-weight: 500;
+      color: #bdbdbd;
+      height: 13px;
+    }
+
+    // сама цена 12 999 руб.
+    b {
+      font-size: 14px;
+      font-weight: 700;
+      height: 17px;
+    }
+
+    //кнопка добавления
+    button {
+      box-sizing: border-box;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+  }
+}
