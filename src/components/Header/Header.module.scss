@@ -1,64 +1,64 @@
-
 //header (тег) -заголовок. display flex, чтобы расположить контент внутри в строчку. space-between - блоки на одинаковом расстоянии друг от друга, крайние без отступа от края. паддинг-45пикс внутренний отступ со всех сторон. border-bottom - толщина обводки снизу контейнера 1пикс. solid - прямая линия, цвет обводки
 header {
+  display: flex;
+  justify-content: space-between;
+  padding: 45px;
+  border-bottom: 1px solid #eaeaea;
+
+  //className headerLeft внутри тега header. display flex, чтобы расположить контент внутри в строчку. align-items: center - вуртикальное выравнивание по центру
+  .headerLeft {
     display: flex;
-    justify-content: space-between;
-    padding: 45px;
-    border-bottom: 1px solid #eaeaea;
-  
-    //className headerLeft внутри тега header. display flex, чтобы расположить контент внутри в строчку. align-items: center - вуртикальное выравнивание по центру
-    .headerLeft {
+    align-items: center;
+
+    // теги h3 (заголовок третьего уровня) и р (параграф). внутри className headerLeft внутри тега header. отступ слева 16пикс. display flex, чтобы расположить контент внутри в строчку. align-items: center - вуртикальное выравнивание по центру
+    h3,
+    p {
+      margin: 0 0 0 16px;
       display: flex;
       align-items: center;
-  
-      // теги h3 (заголовок третьего уровня) и р (параграф). внутри className headerLeft внутри тега header. отступ слева 16пикс. display flex, чтобы расположить контент внутри в строчку. align-items: center - вуртикальное выравнивание по центру
-      h3,
-      p {
-        margin: 0 0 0 16px;
-        display: flex;
-        align-items: center;
-      }
-  
-      // отдельно к h3 высота и размер шрифта. высота для более тонкой центровки.
-      h3 {
-        font-size: 35px;
-        height: 38px;
-      }
-  
-      //цвет шрифта для р
-      p {
-        color: #9d9d9d;
-      }
     }
-  
-    //className .headerRight внутри тега header. display flex, чтобы расположить контент внутри в строчку. align-items: center - вертикальное выравнивание по центру. цвет шрифта внутри
-    .headerRight {
-      display: flex;
-      align-items: center;
-      color: #9b9b9b;
-  
-      //li (элемент списка ul) внутри className .headerRight внутри тега header.
-      li {
-        //убирает стилистику маркирования списка
-        list-style-type: none;
-        //размер шрифта
-        font-size: 18px;
-        //толщина (жирность шрифта)
-        font-weight: 600;
-        //цвет шрифта
-        color: #5c5c5c;
-        //чтобы расположить контент внутри в строчку
-        display: flex;
-        //вертикальное выравнивание по центру
-        align-items: center;
-        //отступ слева
-        margin-left: 32px;
-      }
-  
-      //ко всем img , кроме последнего применяется
-      :not(:last-of-type) img {
-        //отступ справа
-        margin-right: 10px;
-      }
+
+    // отдельно к h3 высота и размер шрифта. высота для более тонкой центровки.
+    h3 {
+      font-size: 35px;
+      height: 38px;
+    }
+
+    //цвет шрифта для р
+    p {
+      color: #9d9d9d;
     }
   }
+
+  //className .headerRight внутри тега header. display flex, чтобы расположить контент внутри в строчку. align-items: center - вертикальное выравнивание по центру. цвет шрифта внутри
+  .headerRight {
+    display: flex;
+    align-items: center;
+    color: #9b9b9b;
+
+    //li (элемент списка ul) внутри className .headerRight внутри тега header.
+    li {
+      //убирает стилистику маркирования списка
+      list-style-type: none;
+      //размер шрифта
+      font-size: 18px;
+      //толщина (жирность шрифта)
+      font-weight: 600;
+      //цвет шрифта
+      color: #5c5c5c;
+      //чтобы расположить контент внутри в строчку
+      display: flex;
+      //вертикальное выравнивание по центру
+      align-items: center;
+      //отступ слева
+      margin-left: 32px;
+      cursor: pointer;
+    }
+
+    //ко всем img , кроме последнего применяется
+    :not(:last-of-type) img {
+      //отступ справа
+      margin-right: 10px;
+    }
+  }
+}

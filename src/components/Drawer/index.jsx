@@ -2,7 +2,7 @@ import styles from './Drawer.module.scss'
 
 function Drawer() {
   return (
-    <div  className={styles.overlay} style={{display: 'none'}}>
+    <div  className={styles.overlay}>
       <div className={styles.drawer}>
         <div>
           <h2>
