@@ -1,13 +1,13 @@
 import styles from './Drawer.module.scss'
 
-function Drawer() {
+function Drawer(props) {
   return (
     <div  className={styles.overlay}>
       <div className={styles.drawer}>
         <div>
           <h2>
             Корзина
-            <img
+            <img onClick={props.onClickCartBtn}
               width={32}
               height={32}
               src="/img/btn-delete.svg"
