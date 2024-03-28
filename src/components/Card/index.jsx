@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './Card.module.scss';
 
-function Card(props) {
+function Card({urlImg, price, title, onClickAddCart}) {
 
   const [isAdded, setIsAdded] = React.useState(false);
 
   const onClickAction = () => {
     setIsAdded(!isAdded);
+    onClickAddCart({urlImg, price, title});
   };
 
   return (
@@ -18,13 +19,13 @@ function Card(props) {
         />
       </div>
       <div className={styles.cardImgContainer}>
-        <img src={props.urlImg} alt="Логотип" />
+        <img src={urlImg} alt="Логотип" />
       </div>
-      <p className={styles.cardName}>{props.title}</p>
+      <p className={styles.cardName}>{title}</p>
       <div className={styles.cardPriceAndAdd}>
         <div>
           <p>ЦЕНА:</p>
-          <b>{props.price} руб.</b>
+          <b>{price} руб.</b>
         </div>
         <button onClick={onClickAction}>
           <img src={isAdded ? "/img/btn-added.svg" : "/img/plus.svg"} alt="Добавить в корзину" />

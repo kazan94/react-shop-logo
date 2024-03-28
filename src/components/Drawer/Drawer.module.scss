@@ -8,6 +8,14 @@
   background-color: rgba(0, 0, 0, 0.452);
   z-index: 10;
 
+  // блок для закрытия корзины
+  .overlayForCloseDrawer {
+    //background: red;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+
   // корзина
   .drawer {
     padding: 30px;

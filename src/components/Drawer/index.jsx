@@ -1,13 +1,18 @@
-import styles from './Drawer.module.scss'
+import styles from './Drawer.module.scss';
 
-function Drawer(props) {
+function Drawer({ onClickCartBtn, items = [] }) {
   return (
-    <div  className={styles.overlay}>
+    <div className={styles.overlay}>
+      <div
+        onClick={onClickCartBtn}
+        className={styles.overlayForCloseDrawer}
+      ></div>
       <div className={styles.drawer}>
         <div>
           <h2>
             Корзина
-            <img onClick={props.onClickCartBtn}
+            <img
+              onClick={onClickCartBtn}
               width={32}
               height={32}
               src="/img/btn-delete.svg"
@@ -15,36 +20,23 @@ function Drawer(props) {
             />
           </h2>
           <div className={styles.cartItems}>
-            <div className={styles.cartItem}>
-              <img src="/img/logo/cat-ico.png" alt="Логотип" />
-              <div className={styles.cartItemNamePrice}>
-                <p>Логотип "Кошка"</p>
-                <b>12 999 руб.</b>
+            {items.map((obj) => (
+              <div className={styles.cartItem}>
+                <img src={obj.urlImg} alt="Логотип" />
+                <div className={styles.cartItemNamePrice}>
+                  <p>{obj.title}</p>
+                  <b>{obj.price} руб.</b>
+                </div>
+                <div className={styles.cartItemDelete}>
+                  <img
+                    width={32}
+                    height={32}
+                    src="/img/btn-delete.svg"
+                    alt="Удалить из корзины"
+                  />
+                </div>
               </div>
-              <div className={styles.cartItemDelete}>
-                <img
-                  width={32}
-                  height={32}
-                  src="/img/btn-delete.svg"
-                  alt="Удалить из корзины"
-                />
-              </div>
-            </div>
-            <div className={styles.cartItem}>
-              <img src="/img/logo/fox-ico.png" alt="Логотип" />
-              <div className={styles.cartItemNamePrice}>
-                <p>Логотип "Лиса"</p>
-                <b>12 999 руб.</b>
-              </div>
-              <div className={styles.cartItemDelete}>
-                <img
-                  width={32}
-                  height={32}
-                  src="/img/btn-delete.svg"
-                  alt="Удалить из корзины"
-                />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
         <div className={styles.drawerPayContainer}>
