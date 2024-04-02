@@ -39,7 +39,9 @@
       justify-content: space-between;
 
       // крестик справа от корзины
-      img {
+      button {
+        border: 0;
+        background-color: white;
         cursor: pointer;
         opacity: 0.5;
         transition: opacity 0.2s ease-in-out;

@@ -11,13 +11,14 @@ function Drawer({ onClickCartBtn, items = [] }) {
         <div>
           <h2>
             Корзина
-            <img
-              onClick={onClickCartBtn}
-              width={32}
-              height={32}
-              src="/img/btn-delete.svg"
-              alt="Закрыть корзину"
-            />
+            <button onClick={onClickCartBtn}>
+              <img
+                width={32}
+                height={32}
+                src="/img/btn-delete.svg"
+                alt="Закрыть корзину"
+              />
+            </button>
           </h2>
           <div className={styles.cartItems}>
             {items.map((obj) => (
